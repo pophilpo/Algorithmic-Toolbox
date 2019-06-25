@@ -1,4 +1,3 @@
-#[derive(Debug)]
 struct Sec {
     prev: u64,
     current: u64,
