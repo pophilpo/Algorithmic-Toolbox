@@ -10,6 +10,10 @@ fn main() {
     } else {
         id = id + 2;
 
+        let pisano = 60;
+
+        let id = id % pisano;
+
         let mut prev = 1;
         let mut current = 1;
 
