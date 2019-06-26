@@ -23,6 +23,12 @@ fn main() {
             prev = buffer;
         }
 
-        println!("{}", current - 1);
+        if current == 0 {
+            current = 9;
+        } else {
+            current = current -1;
+        }
+
+        println!("{}", current);
     }
 }
