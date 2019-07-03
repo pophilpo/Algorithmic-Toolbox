@@ -1,32 +1,4 @@
 
-enum Index {
-    Some(usize),
-    None(),
-}
-
-
-fn binary_search(data: &Vec<u64>, left: usize, right: usize, key: u64) -> Index {
-
-
-    if left >= right {
-        return Index::None()
-    } else {
-
-        let mid = left + (right-left) / 2;
-
-        if data[mid] == key {
-            return Index::Some(mid);
-        } else if data[mid] > key {
-            return binary_search(data, left, mid, key);
-        } else {
-            return binary_search(data, mid, right, key);
-        }
-
-    }
-
-}
-
-
 fn main() {
 
 
@@ -46,12 +18,13 @@ fn main() {
 
     for key in query.iter(){
 
-        let id = binary_search(&array, 0, array.len(), *key);
+        let id = array.binary_search(key);
 
         match id {
-            Index::Some(i) => result.push(i as i64),
-            Index::None() => result.push(-1),
+            Ok(id) => result.push(id as i64),
+            Err(_) => result.push(-1),
         };
+
 
     }
 
